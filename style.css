@@ -1,0 +1,209 @@
+/* Reset mặc định: Xóa bỏ khoảng trắng thừa của trình duyệt */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+    background-color: #f4f4f4;
+    
+    /* --- BẮT ĐẦU PHẦN QUAN TRỌNG --- */
+    min-height: 100vh;      /* Chiều cao tối thiểu = 100% màn hình thiết bị */
+    display: flex;          /* Biến body thành túi Flex */
+    flex-direction: column; /* Xếp các con (Header, Main, Footer) theo chiều dọc */
+}
+
+main {
+    flex: 1; /* Lệnh bá đạo: Chiếm lấy toàn bộ khoảng trống còn thừa */
+}
+
+/* --- XỬ LÝ THANH MENU --- */
+.thanh-menu {
+    background-color: white;
+    height: 70px;
+    padding: 0 50px; /* Trên dưới 0, Trái phải 50px */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    
+    /* VŨ KHÍ BÍ MẬT: Flexbox */
+    display: flex; 
+    
+    /* 1. Căn dàn trải: Logo trái, Menu giữa, Nút phải */
+    justify-content: space-between; 
+    
+    /* 2. Căn giữa theo chiều dọc (để chữ không bị lệch lên trên) */
+    align-items: center; 
+}
+
+.logo {
+    font-weight: bold;
+    font-size: 24px;
+    color: #007bff;
+}
+
+/* Class này dùng để đánh dấu trang hiện tại */
+.danh-sach-link a.dang-chon {
+    color: #007bff; /* Màu xanh dương (giống màu hover) */
+    font-weight: bold; /* Chữ đậm lên */
+    border-bottom: 2px solid #007bff; /* Gạch chân màu xanh */
+    padding-bottom: 5px; /* Đẩy gạch chân xuống xíu cho thoáng */
+}
+/* Xử lý danh sách link (ul) */
+.danh-sach-link {
+    display: flex; /* Xếp các thẻ li thành hàng ngang */
+    gap: 30px; /* Khoảng cách giữa các chữ */
+    list-style: none; /* Bỏ dấu chấm tròn đầu dòng */
+}
+
+/* Xử lý thẻ a (chữ link) */
+.danh-sach-link a {
+    text-decoration: none; /* Bỏ gạch chân dưới chân chữ */
+    color: #333;
+    font-weight: 500;
+    font-size: 16px;
+    transition: 0.3s; /* Tạo độ trễ để hiệu ứng mượt hơn */
+}
+
+/* Hiệu ứng: Khi di chuột vào link */
+.danh-sach-link a:hover {
+    color: #007bff; /* Đổi màu xanh */
+}
+
+/* Nút đăng nhập */
+button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* --- XỬ LÝ DANH SÁCH SẢN PHẨM --- */
+
+/* 1. Cái khung bao quanh (thẻ cha) để dàn hàng ngang */
+/* Lưu ý: Trong HTML trang sản phẩm, bạn phải bọc các thẻ sản phẩm trong 1 div có class="danh-sach-san-pham" nhé */
+.danh-sach-san-pham {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Tự xuống dòng khi hết chỗ */
+    gap: 20px;
+    padding: 50px;
+}
+
+/* 2. Thẻ từng sản phẩm lẻ */
+.the-san-pham {
+    background-color: white;
+    width: 250px; /* Chiều rộng cố định */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: 0.3s; /* Hiệu ứng mượt */
+}
+
+/* Hiệu ứng: Di chuột vào thì thẻ nổi lên xíu */
+.the-san-pham:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+.the-san-pham img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.the-san-pham h2 {
+    font-size: 18px;
+    margin: 15px 0;
+    color: #333;
+}
+
+/* Nhãn giảm giá */
+.giam-gia {
+    background-color: #ffeb3b;
+    color: #ff0000;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.gia-tien {
+    color: #d32f2f;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+/* --- XỬ LÝ BANNER --- */
+.banner-chinh {
+    /* 1. Thiết lập ảnh nền */
+    height: 500px; /* Chiều cao cố định */
+    background-image: url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=2070&auto=format&fit=crop');
+    
+    /* Cực quan trọng: Giữ ảnh đẹp trên mọi màn hình */
+    background-size: cover; /* Ảnh tự co giãn để lấp đầy khung, không bị méo */
+    background-position: center; /* Luôn lấy phần giữa của ảnh */
+
+    /* 2. Căn giữa nội dung đè lên ảnh (Dùng lại Flexbox) */
+    display: flex;
+    flex-direction: column; /* Xếp dọc: Chữ trên, nút dưới (Khác với menu là xếp ngang) */
+    justify-content: center; /* Căn giữa theo chiều dọc */
+    align-items: center; /* Căn giữa theo chiều ngang */
+    
+    /* 3. Màu chữ */
+    color: white;
+    text-align: center;
+}
+
+/* Chỉnh chữ tiêu đề to ra */
+.banner-chinh h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5); /* Tạo bóng đen cho chữ dễ đọc */
+}
+
+/* Chỉnh đoạn văn bên dưới */
+.banner-chinh p {
+    font-size: 20px;
+    margin-bottom: 30px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+/* Chỉnh cái nút riêng trong banner cho nổi bật */
+.nut-mua-ngay {
+    padding: 15px 30px; /* Nút to hơn nút trên menu */
+    font-size: 18px;
+    background-color: #ff5722; /* Màu cam nổi bật */
+    font-weight: bold;
+}
+
+.nut-mua-ngay:hover {
+    background-color: #e64a19;
+}
+
+/* --- XỬ LÝ CHÂN TRANG (FOOTER) --- */
+footer {
+    background-color: #333; /* Màu nền xám đen */
+    color: white; /* Chữ màu trắng */
+    text-align: center; /* Căn giữa nội dung */
+    padding: 40px 0; /* Tạo độ dày cho chân trang */
+    margin-top: 50px; /* Đẩy chân trang cách xa nội dung bên trên ra cho thoáng */
+}
+
+footer h3 {
+    margin-bottom: 15px;
+    color: #ff5722; /* Màu cam cho tên Shop */
+}
+
+footer p {
+    font-size: 14px;
+    color: #ccc; /* Màu xám nhạt cho chữ phụ */
+    line-height: 1.6; /* Khoảng cách dòng cho dễ đọc */
+}
