@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 1. Trang điểm cho cả trang web */
+        body {
+            font-family: sans-serif; /* Đổi phông chữ cho hiện đại, dễ đọc */
+            background-color: #f0f2f5; /* Màu nền xám nhẹ dịu mắt */
+            color: #333; /* Màu chữ đen xám */
+            max-width: 600px; /* Gom nội dung lại cho gọn, giống tờ giấy A4 */
+            margin: 0 auto; /* Thần chú: Căn giữa trang web vào giữa màn hình */
+            padding: 20px; /* Tạo khoảng thở xung quanh nội dung */
+            background-color: white; /* Nền của tờ giấy là màu trắng */
+            box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Tạo hiệu ứng bóng đổ mờ mờ cho đẹp */
+        }
+
+        /* 2. Trang điểm cho Tên (Thẻ h1) */
+        h1 {
+            color: #007bff; /* Đổi tên thành màu xanh dương */
+            text-align: center; /* Căn giữa tên */
+            text-transform: uppercase; /* Viết hoa toàn bộ */
+        }
+
+        /* 3. Phù phép cho cái ảnh (Thẻ img) */
+        img {
+            display: block; /* Bắt buộc có dòng này mới căn giữa được ảnh */
+            margin: 0 auto; /* Căn giữa ảnh */
+            width: 150px;   /* Ép ảnh về kích thước vuông vắn */
+            height: 150px;
+            border-radius: 50%; /* MA THUẬT: Biến ảnh vuông thành hình tròn */
+            border: 5px solid #007bff; /* Tạo viền tròn màu xanh quanh ảnh */
+        }
+
+        /* 4. Trang điểm cho các tiêu đề mục (Thẻ h2) */
+        h2 {
+            border-bottom: 2px solid #007bff; /* Kẻ một đường gạch chân màu xanh */
+            padding-bottom: 5px; /* Đẩy chữ lên trên đường kẻ một chút */
+            color: #333;
+            margin-top: 30px; /* Cách xa đoạn trên một chút cho thoáng */
+        }
+
+        /* 5. Làm đậm các mục con */
+        li {
+            margin-bottom: 8px; /* Các dòng trong danh sách cách nhau ra xíu */
+        }
+        /* Quy định giao diện khi bật chế độ tối */
+        .che-do-toi {
+            background-color: #222; /* Nền chuyển màu đen xám */
+            color: #fff; /* Chữ chuyển màu trắng */
+        }
+        
+        /* Khi tối thì cái khung giấy cũng phải tối theo */
+        .che-do-toi body { 
+            background-color: #333; 
+        }
+
+        /* Khi tối thì các tiêu đề đổi màu sáng hơn cho dễ đọc */
+        .che-do-toi h1, 
+        .che-do-toi h2 {
+            color: #66b2ff;
+        }
+    </style>
+</head>
+<body>
+<h1>Nguyễn Hoàng Phi Hùng</h1>
+    <p>Sinh viên CNTT - Đang học lại từ đầu</p>
+    
+    <img src="https://placehold.co/150x150" alt="Ảnh đại diện">
+
+    <hr> <h2>Mục tiêu nghề nghiệp</h2>
+    <p>Tôi là sinh viên sắp ra trường. Dù mất gốc nhưng tôi đang quyết tâm học lại HTML/CSS để trở thành Frontend Developer trong 3 tháng tới.</p>
+
+    <h2>Thông tin liên hệ</h2>
+    <ul>
+        <li><strong>Năm sinh:</strong> 2004</li>
+        <li><strong>Email:</strong> Devillfire01@gmail.com</li>
+        <li><strong>Facebook:</strong> fb.com/nguyenHoangPhiHung</li>
+        <li><strong>Sở thích:</strong> Code dạo, Cafe, Đá bóng</li>
+    </ul>
+
+    <h2>Kỹ năng hiện có</h2>
+    <p>Hiện tại tôi đang học:</p>
+    <ul>
+        <li>HTML: Mới biết cơ bản</li>
+        <li>CSS: Đang tìm hiểu</li>
+        <li>Tinh thần: 100% không bỏ cuộc</li>
+    </ul>
+    <div style="text-align: center; margin-top: 30px;">
+        <button onclick="batTatDen()" style="padding: 10px 20px; font-size: 16px; cursor: pointer;">
+            🌗 Bật/Tắt đèn
+        </button>
+    </div>
+
+    <script>
+        function batTatDen() {
+            // Câu lệnh này nghĩa là: Tìm thằng 'body', và lật mặt nạ 'che-do-toi'
+            // Nếu đang tắt thì bật, đang bật thì tắt
+            document.body.classList.toggle("che-do-toi");
+        }
+    </script>
+</body>
+</html>
